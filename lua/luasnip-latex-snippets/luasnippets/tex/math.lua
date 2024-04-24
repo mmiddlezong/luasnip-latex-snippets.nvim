@@ -88,7 +88,7 @@ M = {
     autosnippet({ trig = "dm", name = "\\[...\\]", dscr = "display math" },
 	fmta([[ 
     \[
-    <>
+        <>
     \]
     <>]],
 	{ i(1), i(0) }),
@@ -97,7 +97,7 @@ M = {
     autosnippet({ trig = "ali", name = "align(|*|ed)", dscr = "align math" },
 	fmta([[ 
     \begin{align<>}
-    <>
+        <>
     \end{align<>}
     ]],
     { c(1, {t("*"), t(""), t("ed")}), i(2), rep(1) }), -- in order of least-most used
@@ -113,7 +113,7 @@ M = {
 	autosnippet({ trig = "gat", name = "gather(|*|ed)", dscr = "gather math" },
 	fmta([[ 
     \begin{gather<>}
-    <>
+        <>
     \end{gather<>}
     ]],
 	{ c(1, {t("*"), t(""), t("ed")}), i(2), rep(1) }),
@@ -122,7 +122,7 @@ M = {
 	autosnippet({ trig = "eqn", name = "equation(|*)", dscr = "equation math" },
 	fmta([[
     \begin{equation<>}
-    <>
+        <>
     \end{equation<>}
     ]],
 	{ c(1, {t("*"), t("")}), i(2), rep(1) }),
@@ -154,7 +154,7 @@ M = {
     autosnippet({ trig = "(%d?)cases", name = "cases", dscr = "cases", regTrig = true, hidden = true },
     fmta([[
     \begin{cases}
-    <>
+        <>
     \end{cases}
     ]],
 	{ d(1, generate_cases) }),
