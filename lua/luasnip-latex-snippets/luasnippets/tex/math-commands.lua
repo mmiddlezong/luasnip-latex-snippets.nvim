@@ -455,14 +455,14 @@ local single_command_math_specs = {
 		},
 		command = [[\substack]],
 	},
-	-- sq = {
-	-- 	context = {
-	-- 		name = "sqrt",
-	-- 		dscr = "sqrt",
-	-- 	},
-	-- 	command = [[\sqrt]],
-	-- 	ext = { choice = true },
-	-- },
+	sq = {
+		context = {
+			name = "sqrt",
+			dscr = "sqrt",
+		},
+		command = [[\sqrt]],
+		-- ext = { choice = true },
+	},
 }
 
 local single_command_math_snippets = {}
@@ -472,7 +472,7 @@ for k, v in pairs(single_command_math_specs) do
 		single_command_snippet(
 			vim.tbl_deep_extend("keep", { trig = k, snippetType = "autosnippet" }, v.context),
 			v.command,
-			{ condition = tex.in_math },
+			{ condition = tex.in_math, backslash = true },
 			v.ext or {}
 		)
 	)
