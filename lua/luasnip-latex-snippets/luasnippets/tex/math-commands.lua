@@ -455,14 +455,14 @@ local single_command_math_specs = {
 		},
 		command = [[\substack]],
 	},
-	sq = {
-		context = {
-			name = "sqrt",
-			dscr = "sqrt",
-		},
-		command = [[\sqrt]],
-		ext = { choice = true },
-	},
+	-- sq = {
+	-- 	context = {
+	-- 		name = "sqrt",
+	-- 		dscr = "sqrt",
+	-- 	},
+	-- 	command = [[\sqrt]],
+	-- 	ext = { choice = true },
+	-- },
 }
 
 local single_command_math_snippets = {}
