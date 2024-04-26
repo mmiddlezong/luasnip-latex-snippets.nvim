@@ -282,8 +282,8 @@ local greek_specs = {
 	Gamma = { context = { name = "Γ" }, command = [[\Gamma]] },
 	delta = { context = { name = "δ" }, command = [[\delta]] },
 	Delta = { context = { name = "Δ" }, command = [[\Delta]] },
-	epsilon = { context = { name = "ε", priority = 500 }, command = [[\epsilon]] },
-	varepsilon = { context = { name = "ε" }, command = [[\varepsilon]] },
+	eps = { context = { name = "ε", priority = 500 }, command = [[\epsilon]] },
+	vareps = { context = { name = "ε" }, command = [[\varepsilon]] },
 	zeta = { context = { name = "ζ" }, command = [[\zeta]] },
 	eta = { context = { name = "η", priority = 500 }, command = [[\eta]] },
 	theta = { context = { name = "θ" }, command = [[\theta]] },
@@ -300,7 +300,7 @@ local greek_specs = {
 	sigma = { context = { name = "σ" }, command = [[\sigma]] },
 	Sigma = { context = { name = "Σ" }, command = [[\Sigma]] },
 	tau = { context = { name = "τ" }, command = [[\tau]] },
-	upsilon = { context = { name = "υ" }, command = [[\upsilon]] },
+	ups = { context = { name = "υ" }, command = [[\upsilon]] },
 	phi = { context = { name = "φ" }, command = [[\phi]] },
 	varphi = { context = { name = "φ" }, command = [[\varphi]] },
 	chi = { context = { name = "χ" }, command = [[\chi]] },
@@ -320,7 +320,7 @@ for k, v in pairs(greek_specs) do
 		)
 	)
 end
-vim.list_extend(M, greek_snippets)
+-- vim.list_extend(M, greek_snippets)
 
 local symbol_specs = {
 	-- operators
