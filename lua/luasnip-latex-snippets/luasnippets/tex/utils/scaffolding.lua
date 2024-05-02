@@ -103,9 +103,11 @@ M.symbol_snippet = function(context, command, opts)
 	context.name = context.name or command:gsub([[\]], "")
 	context.docstring = context.docstring or (command .. [[{0}]])
 	context.wordTrig = context.wordTrig or false
-	if opts.backslash == true then
+	j, _ = string.find(command, context.trig)
+	if j == 2 then -- command always starts with backslash
 		context.trigEngine = "ecma"
 		context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
+		context.hidden = true
 	end
 	return autosnippet(context, t(command), opts)
 end
@@ -148,6 +150,12 @@ M.single_command_snippet = function(context, command, opts, ext)
 		context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
 	end
 	context.docstring = context.docstring or (command .. docstring)
+    j, _ = string.find(command, context.trig)
+    if j == 2 then 
+        context.trigEngine = "ecma"
+        context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
+        context.hidden = true
+    end
 	-- stype = ext.stype or s
 	return s(
 		context,
@@ -166,6 +174,7 @@ M.postfix_snippet = function(context, command, opts)
 	end
 	context.dscr = context.dscr
 	context.name = context.name or context.dscr
+<<<<<<< HEAD
 	context.docstring = command.pre .. [[(POSTFIX_MATCH|VISUAL|<1>)]] .. command.post
 	context.match_pattern = [[[%w%.%_%-%"%']*$]]
 	return postfix(
@@ -173,6 +182,17 @@ M.postfix_snippet = function(context, command, opts)
 		{ d(1, generate_postfix_dynamicnode, {}, { user_args = { command.pre, command.post } }) },
 		opts
 	)
+=======
+    context.docstring = command.pre .. [[(POSTFIX_MATCH|VISUAL|<1>)]] .. command.post
+    context.match_pattern = [[[%w%.%_%-%"%']*$]]
+    j, _ = string.find(command.pre, context.trig)
+    if j == 2 then
+        context.trigEngine = "ecma"
+        context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
+        context.hidden = true
+    end
+    return postfix(context, {d(1, generate_postfix_dynamicnode, {}, { user_args = {command.pre, command.post} })}, opts)
+>>>>>>> 5f61eb4b0b98633eaa6ca7deacc2818216efc695
 end
 
 return M
