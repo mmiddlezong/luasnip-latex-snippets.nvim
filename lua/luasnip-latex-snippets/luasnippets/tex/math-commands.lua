@@ -98,7 +98,7 @@ M = {
 
 	-- fractions
 	autosnippet(
-		{ trig = "frac", name = "fraction", dscr = "fraction (general)" },
+		{ trig = "//", name = "fraction", dscr = "fraction (general)" },
 		fmta(
 			[[
     \frac{<>}{<>}<>
