@@ -130,114 +130,114 @@ M = {
 		{ condition = tex.in_math, show_condition = tex.in_math }
 	),
 
-	autosnippet(
-		{ trig = "lim", name = "lim(sup|inf)", dscr = "lim(sup|inf)" },
-		fmta(
-			[[ 
-    \lim<><><>
-    ]],
-			{
-				c(1, { t(""), t("sup"), t("inf") }),
-				c(2, { t(""), fmta([[_{<> \to <>}]], { i(1, "n"), i(2, "\\infty") }) }),
-				i(0),
-			}
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "sum", name = "summation", dscr = "summation" },
-		fmta(
-			[[
-    \sum<> <>
-    ]],
-			{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "prod", name = "product", dscr = "product" },
-		fmta(
-			[[
-    \prod<> <>
-    ]],
-			{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "cprod", name = "coproduct", dscr = "coproduct" },
-		fmta(
-			[[
-    \coprod<> <>
-    ]],
-			{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "set", name = "set", dscr = "set" }, -- overload with set builders notation because analysis and algebra cannot agree on a singular notation
-		fmta(
-			[[
-    \{<>\}<>
-    ]],
-			{
-				c(
-					1,
-					{ r(1, ""), sn(nil, { r(1, ""), t(" \\mid "), i(2) }), sn(nil, { r(1, ""), t(" \\colon "), i(2) }) }
-				),
-				i(0),
-			}
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "nnn", name = "bigcap", dscr = "bigcap" },
-		fmta(
-			[[
-    \bigcap<> <>
-    ]],
-			{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "uuu", name = "bigcup", dscr = "bigcup" },
-		fmta(
-			[[
-    \bigcup<> <>
-    ]],
-			{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "bnc", name = "binomial", dscr = "binomial (nCR)" },
-		fmta(
-			[[
-    \binom{<>}{<>}<>
-    ]],
-			{ i(1), i(2), i(0) }
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
-
-	autosnippet(
-		{ trig = "pd", name = "partial", dscr = "partial derivative" },
-		fmta(
-			[[
-    \frac{\partial <>}{\partial <>}<>
-    ]],
-			{ i(1), i(2), i(0) }
-		),
-		{ condition = tex.in_math, show_condition = tex.in_math }
-	),
+	-- autosnippet(
+	-- 	{ trig = "lim", name = "lim(sup|inf)", dscr = "lim(sup|inf)" },
+	-- 	fmta(
+	-- 		[[
+	--    \lim<><><>
+	--    ]],
+	-- 		{
+	-- 			c(1, { t(""), t("sup"), t("inf") }),
+	-- 			c(2, { t(""), fmta([[_{<> \to <>}]], { i(1, "n"), i(2, "\\infty") }) }),
+	-- 			i(0),
+	-- 		}
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "sum", name = "summation", dscr = "summation" },
+	-- 	fmta(
+	-- 		[[
+	--    \sum<> <>
+	--    ]],
+	-- 		{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "prod", name = "product", dscr = "product" },
+	-- 	fmta(
+	-- 		[[
+	--    \prod<> <>
+	--    ]],
+	-- 		{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "cprod", name = "coproduct", dscr = "coproduct" },
+	-- 	fmta(
+	-- 		[[
+	--    \coprod<> <>
+	--    ]],
+	-- 		{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "set", name = "set", dscr = "set" }, -- overload with set builders notation because analysis and algebra cannot agree on a singular notation
+	-- 	fmta(
+	-- 		[[
+	--    \{<>\}<>
+	--    ]],
+	-- 		{
+	-- 			c(
+	-- 				1,
+	-- 				{ r(1, ""), sn(nil, { r(1, ""), t(" \\mid "), i(2) }), sn(nil, { r(1, ""), t(" \\colon "), i(2) }) }
+	-- 			),
+	-- 			i(0),
+	-- 		}
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "nnn", name = "bigcap", dscr = "bigcap" },
+	-- 	fmta(
+	-- 		[[
+	--    \bigcap<> <>
+	--    ]],
+	-- 		{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "uuu", name = "bigcup", dscr = "bigcup" },
+	-- 	fmta(
+	-- 		[[
+	--    \bigcup<> <>
+	--    ]],
+	-- 		{ c(1, { fmta([[_{<>}^{<>}]], { i(1, "i = 0"), i(2, "\\infty") }), t("") }), i(0) }
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "bnc", name = "binomial", dscr = "binomial (nCR)" },
+	-- 	fmta(
+	-- 		[[
+	--    \binom{<>}{<>}<>
+	--    ]],
+	-- 		{ i(1), i(2), i(0) }
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
+	--
+	-- autosnippet(
+	-- 	{ trig = "pd", name = "partial", dscr = "partial derivative" },
+	-- 	fmta(
+	-- 		[[
+	--    \frac{\partial <>}{\partial <>}<>
+	--    ]],
+	-- 		{ i(1), i(2), i(0) }
+	-- 	),
+	-- 	{ condition = tex.in_math, show_condition = tex.in_math }
+	-- ),
 }
 
 -- Auto backslashes
@@ -276,37 +276,37 @@ vim.list_extend(M, auto_backslash_snippets)
 
 -- Symbols/Commands
 local greek_specs = {
-	alpha = { context = { name = "α" }, command = [[\alpha]] },
-	beta = { context = { name = "β" }, command = [[\beta]] },
-	gamma = { context = { name = "γ" }, command = [[\gamma]] },
-	Gamma = { context = { name = "Γ" }, command = [[\Gamma]] },
-	delta = { context = { name = "δ" }, command = [[\delta]] },
-	Delta = { context = { name = "Δ" }, command = [[\Delta]] },
-	eps = { context = { name = "ε", priority = 500 }, command = [[\epsilon]] },
-	vareps = { context = { name = "ε" }, command = [[\varepsilon]] },
-	zeta = { context = { name = "ζ" }, command = [[\zeta]] },
-	eta = { context = { name = "η", priority = 500 }, command = [[\eta]] },
-	theta = { context = { name = "θ" }, command = [[\theta]] },
-	Theta = { context = { name = "Θ" }, command = [[\Theta]] },
-	iota = { context = { name = "ι" }, command = [[\iota]] },
-	kappa = { context = { name = "κ" }, command = [[\kappa]] },
-	lambda = { context = { name = "λ" }, command = [[\lambda]] },
-	Lambda = { context = { name = "Λ" }, command = [[\Lambda]] },
-	mu = { context = { name = "μ" }, command = [[\mu]] },
-	nu = { context = { name = "ν" }, command = [[\nu]] },
-	xi = { context = { name = "ξ" }, command = [[\xi]] },
-	pi = { context = { name = "π" }, command = [[\pi]] },
-	rho = { context = { name = "ρ" }, command = [[\rho]] },
-	sigma = { context = { name = "σ" }, command = [[\sigma]] },
-	Sigma = { context = { name = "Σ" }, command = [[\Sigma]] },
-	tau = { context = { name = "τ" }, command = [[\tau]] },
-	ups = { context = { name = "υ" }, command = [[\upsilon]] },
-	phi = { context = { name = "φ" }, command = [[\phi]] },
-	varphi = { context = { name = "φ" }, command = [[\varphi]] },
-	chi = { context = { name = "χ" }, command = [[\chi]] },
-	psi = { context = { name = "Ψ" }, command = [[\psi]] },
-	omega = { context = { name = "ω" }, command = [[\omega]] },
-	Omega = { context = { name = "Ω" }, command = [[\Omega]] },
+	-- alpha = { context = { name = "α" }, command = [[\alpha]] },
+	-- beta = { context = { name = "β" }, command = [[\beta]] },
+	-- gamma = { context = { name = "γ" }, command = [[\gamma]] },
+	-- Gamma = { context = { name = "Γ" }, command = [[\Gamma]] },
+	-- delta = { context = { name = "δ" }, command = [[\delta]] },
+	-- Delta = { context = { name = "Δ" }, command = [[\Delta]] },
+	-- eps = { context = { name = "ε", priority = 500 }, command = [[\epsilon]] },
+	-- vareps = { context = { name = "ε" }, command = [[\varepsilon]] },
+	-- zeta = { context = { name = "ζ" }, command = [[\zeta]] },
+	-- eta = { context = { name = "η", priority = 500 }, command = [[\eta]] },
+	-- theta = { context = { name = "θ" }, command = [[\theta]] },
+	-- Theta = { context = { name = "Θ" }, command = [[\Theta]] },
+	-- iota = { context = { name = "ι" }, command = [[\iota]] },
+	-- kappa = { context = { name = "κ" }, command = [[\kappa]] },
+	-- lambda = { context = { name = "λ" }, command = [[\lambda]] },
+	-- Lambda = { context = { name = "Λ" }, command = [[\Lambda]] },
+	-- mu = { context = { name = "μ" }, command = [[\mu]] },
+	-- nu = { context = { name = "ν" }, command = [[\nu]] },
+	-- xi = { context = { name = "ξ" }, command = [[\xi]] },
+	-- pi = { context = { name = "π" }, command = [[\pi]] },
+	-- rho = { context = { name = "ρ" }, command = [[\rho]] },
+	-- sigma = { context = { name = "σ" }, command = [[\sigma]] },
+	-- Sigma = { context = { name = "Σ" }, command = [[\Sigma]] },
+	-- tau = { context = { name = "τ" }, command = [[\tau]] },
+	-- ups = { context = { name = "υ" }, command = [[\upsilon]] },
+	-- phi = { context = { name = "φ" }, command = [[\phi]] },
+	-- varphi = { context = { name = "φ" }, command = [[\varphi]] },
+	-- chi = { context = { name = "χ" }, command = [[\chi]] },
+	-- psi = { context = { name = "Ψ" }, command = [[\psi]] },
+	-- omega = { context = { name = "ω" }, command = [[\omega]] },
+	-- Omega = { context = { name = "Ω" }, command = [[\Omega]] },
 }
 
 local greek_snippets = {}
@@ -320,7 +320,7 @@ for k, v in pairs(greek_specs) do
 		)
 	)
 end
--- vim.list_extend(M, greek_snippets)
+vim.list_extend(M, greek_snippets)
 
 local symbol_specs = {
 	-- operators
@@ -397,34 +397,34 @@ end
 vim.list_extend(M, symbol_snippets)
 
 local single_command_math_specs = {
-	tt = {
-		context = {
-			name = "text (math)",
-			dscr = "text in math mode",
-		},
-		command = [[\text]],
-	},
-	sbf = {
-		context = {
-			name = "symbf",
-			dscr = "bold math text",
-		},
-		command = [[\symbf]],
-	},
-	syi = {
-		context = {
-			name = "symit",
-			dscr = "italic math text",
-		},
-		command = [[\symit]],
-	},
-	udd = {
-		context = {
-			name = "underline (math)",
-			dscr = "underlined text in math mode",
-		},
-		command = [[\underline]],
-	},
+	-- tt = {
+	-- 	context = {
+	-- 		name = "text (math)",
+	-- 		dscr = "text in math mode",
+	-- 	},
+	-- 	command = [[\text]],
+	-- },
+	-- sbf = {
+	-- 	context = {
+	-- 		name = "symbf",
+	-- 		dscr = "bold math text",
+	-- 	},
+	-- 	command = [[\symbf]],
+	-- },
+	-- syi = {
+	-- 	context = {
+	-- 		name = "symit",
+	-- 		dscr = "italic math text",
+	-- 	},
+	-- 	command = [[\symit]],
+	-- },
+	-- udd = {
+	-- 	context = {
+	-- 		name = "underline (math)",
+	-- 		dscr = "underlined text in math mode",
+	-- 	},
+	-- 	command = [[\underline]],
+	-- },
 	conj = {
 		context = {
 			name = "conjugate",
@@ -432,30 +432,30 @@ local single_command_math_specs = {
 		},
 		command = [[\overline]],
 	},
-	["__"] = {
-		context = {
-			name = "subscript",
-			dscr = "auto subscript 3",
-			wordTrig = false,
-		},
-		command = [[_]],
-	},
-	td = {
-		context = {
-			name = "superscript",
-			dscr = "auto superscript alt",
-			wordTrig = false,
-		},
-		command = [[^]],
-	},
-	sbt = {
-		context = {
-			name = "substack",
-			dscr = "substack for sums/products",
-		},
-		command = [[\substack]],
-	},
-	sq = {
+	-- ["__"] = {
+	-- 	context = {
+	-- 		name = "subscript",
+	-- 		dscr = "auto subscript 3",
+	-- 		wordTrig = false,
+	-- 	},
+	-- 	command = [[_]],
+	-- },
+	-- td = {
+	-- 	context = {
+	-- 		name = "superscript",
+	-- 		dscr = "auto superscript alt",
+	-- 		wordTrig = false,
+	-- 	},
+	-- 	command = [[^]],
+	-- },
+	-- sbt = {
+	-- 	context = {
+	-- 		name = "substack",
+	-- 		dscr = "substack for sums/products",
+	-- 	},
+	-- 	command = [[\substack]],
+	-- },
+	sqrt = {
 		context = {
 			name = "sqrt",
 			dscr = "sqrt",
@@ -480,77 +480,77 @@ end
 vim.list_extend(M, single_command_math_snippets)
 
 local postfix_math_specs = {
-	mbb = {
-		context = {
-			name = "mathbb",
-			dscr = "math blackboard bold",
-		},
-		command = {
-			pre = [[\mathbb{]],
-			post = [[}]],
-		},
-	},
-	mcal = {
-		context = {
-			name = "mathcal",
-			dscr = "math calligraphic",
-		},
-		command = {
-			pre = [[\mathcal{]],
-			post = [[}]],
-		},
-	},
-	mscr = {
-		context = {
-			name = "mathscr",
-			dscr = "math script",
-		},
-		command = {
-			pre = [[\mathscr{]],
-			post = [[}]],
-		},
-	},
-	mfr = {
-		context = {
-			name = "mathfrak",
-			dscr = "mathfrak",
-		},
-		command = {
-			pre = [[\mathfrak{]],
-			post = [[}]],
-		},
-	},
-	hat = {
-		context = {
-			name = "hat",
-			dscr = "hat",
-		},
-		command = {
-			pre = [[\hat{]],
-			post = [[}]],
-		},
-	},
-	bar = {
-		context = {
-			name = "bar",
-			dscr = "bar (overline)",
-		},
-		command = {
-			pre = [[\overline{]],
-			post = [[}]],
-		},
-	},
-	tld = {
-		context = {
-			name = "tilde",
-			priority = 500,
-			dscr = "tilde",
-		},
-		command = {
-			pre = [[\tilde{]],
-			post = [[}]],
-		},
-	},
+	-- mbb = {
+	-- 	context = {
+	-- 		name = "mathbb",
+	-- 		dscr = "math blackboard bold",
+	-- 	},
+	-- 	command = {
+	-- 		pre = [[\mathbb{]],
+	-- 		post = [[}]],
+	-- 	},
+	-- },
+	-- mcal = {
+	-- 	context = {
+	-- 		name = "mathcal",
+	-- 		dscr = "math calligraphic",
+	-- 	},
+	-- 	command = {
+	-- 		pre = [[\mathcal{]],
+	-- 		post = [[}]],
+	-- 	},
+	-- },
+	-- mscr = {
+	-- 	context = {
+	-- 		name = "mathscr",
+	-- 		dscr = "math script",
+	-- 	},
+	-- 	command = {
+	-- 		pre = [[\mathscr{]],
+	-- 		post = [[}]],
+	-- 	},
+	-- },
+	-- mfr = {
+	-- 	context = {
+	-- 		name = "mathfrak",
+	-- 		dscr = "mathfrak",
+	-- 	},
+	-- 	command = {
+	-- 		pre = [[\mathfrak{]],
+	-- 		post = [[}]],
+	-- 	},
+	-- },
+	-- hat = {
+	-- 	context = {
+	-- 		name = "hat",
+	-- 		dscr = "hat",
+	-- 	},
+	-- 	command = {
+	-- 		pre = [[\hat{]],
+	-- 		post = [[}]],
+	-- 	},
+	-- },
+	-- bar = {
+	-- 	context = {
+	-- 		name = "bar",
+	-- 		dscr = "bar (overline)",
+	-- 	},
+	-- 	command = {
+	-- 		pre = [[\overline{]],
+	-- 		post = [[}]],
+	-- 	},
+	-- },
+	-- tld = {
+	-- 	context = {
+	-- 		name = "tilde",
+	-- 		priority = 500,
+	-- 		dscr = "tilde",
+	-- 	},
+	-- 	command = {
+	-- 		pre = [[\tilde{]],
+	-- 		post = [[}]],
+	-- 	},
+	-- },
 }
 
 local postfix_math_snippets = {}
