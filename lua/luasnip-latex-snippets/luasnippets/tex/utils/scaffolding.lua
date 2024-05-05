@@ -131,31 +131,30 @@ M.single_command_snippet = function(context, command, opts, ext)
 	if ext.label == true then
 		docstring = [[{]] .. [[<1>]] .. [[}]] .. [[\label{(]] .. ext.short .. [[:<2>)?}]] .. [[<0>]]
 		ext.short = ext.short or command
-		lnode =
-			c(2 + (offset or 0), {
-				t(""),
-				sn(
-					nil,
-					fmta(
-						[[
+		lnode = c(2 + (offset or 0), {
+			t(""),
+			sn(
+				nil,
+				fmta(
+					[[
         \label{<>:<>}
         ]],
-						{ t(ext.short), i(1) }
-					)
-				),
-			})
+					{ t(ext.short), i(1) }
+				)
+			),
+		})
 	end
 	if opts.backslash == true then
 		context.trigEngine = "ecma"
 		context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
 	end
 	context.docstring = context.docstring or (command .. docstring)
-    j, _ = string.find(command, context.trig)
-    if j == 2 then 
-        context.trigEngine = "ecma"
-        context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
-        context.hidden = true
-    end
+	j, _ = string.find(command, context.trig)
+	if j == 2 then
+		context.trigEngine = "ecma"
+		context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
+		context.hidden = true
+	end
 	-- stype = ext.stype or s
 	return s(
 		context,
@@ -174,25 +173,19 @@ M.postfix_snippet = function(context, command, opts)
 	end
 	context.dscr = context.dscr
 	context.name = context.name or context.dscr
-<<<<<<< HEAD
 	context.docstring = command.pre .. [[(POSTFIX_MATCH|VISUAL|<1>)]] .. command.post
 	context.match_pattern = [[[%w%.%_%-%"%']*$]]
+	j, _ = string.find(command.pre, context.trig)
+	if j == 2 then
+		context.trigEngine = "ecma"
+		context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
+		context.hidden = true
+	end
 	return postfix(
 		context,
 		{ d(1, generate_postfix_dynamicnode, {}, { user_args = { command.pre, command.post } }) },
 		opts
 	)
-=======
-    context.docstring = command.pre .. [[(POSTFIX_MATCH|VISUAL|<1>)]] .. command.post
-    context.match_pattern = [[[%w%.%_%-%"%']*$]]
-    j, _ = string.find(command.pre, context.trig)
-    if j == 2 then
-        context.trigEngine = "ecma"
-        context.trig = "(?<!\\\\)" .. "(" .. context.trig .. ")"
-        context.hidden = true
-    end
-    return postfix(context, {d(1, generate_postfix_dynamicnode, {}, { user_args = {command.pre, command.post} })}, opts)
->>>>>>> 5f61eb4b0b98633eaa6ca7deacc2818216efc695
 end
 
 return M
