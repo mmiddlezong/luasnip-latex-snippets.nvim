@@ -39,7 +39,7 @@ local line_begin = require("luasnip.extras.conditions.expand").line_begin
 
 M = {
 	s(
-		{ trig = "beg", name = "begin/end", dscr = "begin/end environment (generic)" },
+		{ trig = "begin", name = "begin/end", dscr = "begin/end environment (generic)" },
 		fmta(
 			[[
     \begin{<>}
